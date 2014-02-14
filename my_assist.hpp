@@ -2,6 +2,8 @@
 #ifndef _MY_ASSIST_H_
 #define _MY_ASSIST_H_
 
+
+
 #include <GL/freeglut.h>
 #include <iostream>
 #include <cstring>
