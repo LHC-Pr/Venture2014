@@ -4,7 +4,7 @@
 #include "my_stage1.hpp"
 
 #define FIRST_STAGECLASS Stage1()
-#define TIMER_WAIT 0
+#define TIMER_WAIT 10
 
 //global
 int WindowWidth = 600;
