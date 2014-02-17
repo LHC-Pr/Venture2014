@@ -185,6 +185,5 @@ void KeyboardUp(unsigned char key, int x, int y)
 void Close(void)
 {
 	std::cout << "finish!" << std::endl;
-
 	delete Stage;
 }
