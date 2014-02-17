@@ -37,12 +37,14 @@ public:
 class Progress : public Charactor
 {
 public:
-	int render_f; 				// 存在しているか
+	bool render_f; 				// 存在しているか
 	int Direction;				// 進行方向
 	
     Progress();
 	virtual void Render(int);
-	void Reset(int);
+	void Reset(Vector3);
+	bool renderp();
+	void erase();
 };
 
 class Stage1 : public StageClass{
