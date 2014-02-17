@@ -23,6 +23,7 @@ public:
 
 	Charactor();
 	virtual void Render(int) = 0;
+	virtual void PhyCal() = 0;
 };
 
 class Me : public Charactor{
@@ -32,13 +33,23 @@ public:
 
 	Me();
 	virtual void Render(int);
+	virtual void PhyCal();
+	virtual void MoveCal(int);
 };
 
-class Progress : public Charactor
+class Enemy : public Charactor
+{
+public:
+	int Direction;
+	Enemy();
+	virtual void Render(int);
+	virtual void PhyCal();
+};
+
+class Progress : public Enemy
 {
 public:
 	bool render_f; 				// 存在しているか
-	int Direction;				// 進行方向
 	
     Progress();
 	virtual void Render(int);
@@ -74,7 +85,7 @@ private:
 
 	Progress pro[BOX_MAX];
 
-
+	Enemy enemy;
 public:
 
 	Stage1();
