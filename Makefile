@@ -3,11 +3,11 @@ CXX = g++
 UNAME = ${shell uname}
 
 LDLIBS = -g -lglut -framework GLUT -framework OpenGL
-ifeq (\$(UNAME), Linux)
+ifeq ($(UNAME), Linux)
 LDLIBS = -lglut -lGLU -lGL
 endif
 
-ifeq (\$(UNAME), Darwin)
+ifeq ($(UNAME), Darwin)
 LDLIBS  = -g -lglut -framework GLUT -framework OpenGL
 endif
 
