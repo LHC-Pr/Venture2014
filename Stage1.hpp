@@ -17,6 +17,7 @@ public:
 	Vector3 pos;
 	Vector3 speed;
 	Vector3 force;
+	Vector3 vec;
 
 	int onface;
 
@@ -50,7 +51,6 @@ private:
 
 	// own equipment
 	Me me;
-	Vector3 me_vec;
 	float rot;
 
 	// box
@@ -71,7 +71,6 @@ private:
 	char str_timer[20];
 
 	Progress pro[BOX_MAX];
-	Vector3 pro_vec[BOX_MAX];
 
 
 public:
