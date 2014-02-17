@@ -1,4 +1,4 @@
-// my_stage1.hpp
+// Stage1.hpp
 #ifndef _MY_STAGE1_H_
 #define _MY_STAGE1_H_
 
@@ -11,31 +11,37 @@
 	Main.cppでインスタンスが作られ関数が呼ばれる
  ------------------------------------------------------------------*/
 
-class Me{
-public:
-	Vector3 pos;
-	Vector3 angle;
-	Vector3 speed;
-	Vector3 force;
-	Vector3 offset;
-
-	Me();
-	void Render(int);
-};
-
-class Progress
+class Charactor
 {
 public:
 	Vector3 pos;
 	Vector3 speed;
 	Vector3 force;
-	int render_f; 				// 存在しているか
+
 	int onface;
+
+	Charactor();
+	virtual void Render(int) = 0;
+};
+
+class Me : public Charactor{
+public:
+	Vector3 angle;
+
+	Me();
+	virtual void Render(int);
+};
+
+class Progress : public Charactor
+{
+public:
+	int render_f; 				// 存在しているか
 	int Direction;				// 進行方向
+	int test;
 	
     Progress();
-	void Render(int rot);
-	void Reset(int i);
+	virtual void Render(int);
+	void Reset(int);
 };
 
 class Stage1 : public StageClass{
@@ -45,7 +51,6 @@ private:
 	// own equipment
 	Me me;
 	Vector3 me_vec;
-	int onface;
 	float rot;
 
 	// box
@@ -85,8 +90,10 @@ public:
 	virtual void Input(char event, int key, int x, int y);
 
 	virtual bool onFacep(int borad_size, Vector3 speed, Vector3 pro);
-
+	
+	// 2つのobjectの位置座標(Vector3)を渡すと、あたっているか判定する(球)
 	virtual bool Hitp(Vector3 first, Vector3 second);
+	
 
 	// Destructor
 	virtual ~Stage1();

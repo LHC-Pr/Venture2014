@@ -15,6 +15,7 @@ char* fps(void)
 		t2 = t1;
 		count = 0;
 	}
+	
 	++count;
 	return txt_fps;
 }

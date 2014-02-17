@@ -1,8 +1,6 @@
-// 
+// Assist.hpp
 #ifndef _MY_ASSIST_H_
 #define _MY_ASSIST_H_
-
-
 
 #include <GL/freeglut.h>
 #include <iostream>
@@ -89,7 +87,7 @@ public:
 	// called on the screen redraw time
 	virtual void Disp() = 0;
 
-	virtual void Disp2D(int WindowWidth, int WindowHeight){}
+	virtual void Disp2D(int WindowWidth, int WindowHeight) = 0;
 
 	virtual void Input(char event, int key, int x, int y)
 	{
@@ -100,8 +98,8 @@ public:
 			break;
 		}
 	}
-
-	virtual ~StageClass(){}
+	
+	virtual ~StageClass(){};
 };
 
 
@@ -115,6 +113,7 @@ public:
 	Vector2 size;
 	Vector3 pos;
 	Vector3 vertex[4];
+	Vector3 tmp;
 
 	Board(float u, float v);
 	void render();

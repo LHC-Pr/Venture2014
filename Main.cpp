@@ -1,3 +1,5 @@
+// »²¹ÍURL:http://moto-net.github.io/programming/2012/11/12/OpenGLGame/
+
 //Main.cpp
 
 #include "Assist.hpp"
