@@ -2,7 +2,7 @@
 #ifndef _MY_STAGE1_H_
 #define _MY_STAGE1_H_
 
-#include "my_assist.hpp"
+#include "Assist.hpp"
 
 #define BOX_MAX 4
 

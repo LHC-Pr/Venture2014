@@ -1,10 +1,10 @@
-//my_main.cpp
+//Main.cpp
 
-#include "my_assist.hpp"
-#include "my_stage1.hpp"
+#include "Assist.hpp"
+#include "Stage1.hpp"
 
 #define FIRST_STAGECLASS Stage1()
-#define TIMER_WAIT 10
+#define TIMER_WAIT 20
 
 //global
 int WindowWidth = 600;

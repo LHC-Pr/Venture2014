@@ -1,6 +1,6 @@
 CXX = g++
 LDLIBS  = -g -lglut -framework GLUT -framework OpenGL
-OBJS    = my_main.o my_assist.o my_stage1.o 
+OBJS    = Main.o Assist.o Stage1.o 
 PROGRAM = game
 
 all: $(PROGRAM)
