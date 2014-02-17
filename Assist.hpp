@@ -6,6 +6,7 @@
 #include <iostream>
 #include <cstring>
 #include <cmath>
+#include <cstdio>
 
 #define SC_INPUT_KEY_DOWN 'n'
 
