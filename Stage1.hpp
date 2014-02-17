@@ -18,7 +18,6 @@ public:
 	Vector3 pos;
 	Vector3 speed;
 	Vector3 force;
-	Vector3 vec;
 
 	int onface;
 
@@ -28,6 +27,7 @@ public:
 
 class Me : public Charactor{
 public:
+	Vector3 vec;
 	Vector3 angle;
 
 	Me();
