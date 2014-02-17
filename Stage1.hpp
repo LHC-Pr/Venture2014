@@ -2,6 +2,7 @@
 #ifndef _MY_STAGE1_H_
 #define _MY_STAGE1_H_
 
+
 #include "Assist.hpp"
 
 #define BOX_MAX 4
@@ -38,7 +39,6 @@ class Progress : public Charactor
 public:
 	int render_f; 				// 存在しているか
 	int Direction;				// 進行方向
-	int test;
 	
     Progress();
 	virtual void Render(int);

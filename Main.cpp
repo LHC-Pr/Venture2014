@@ -9,8 +9,8 @@
 #define TIMER_WAIT 20
 
 //global
-int WindowWidth = 400;
-int WindowHeight = 400;
+int WindowWidth = 350;
+int WindowHeight = 350;
 const char WindowTitle[] = "OpenGLGame";
 StageClass *Stage;
 

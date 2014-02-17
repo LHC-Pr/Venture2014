@@ -9,7 +9,6 @@
 #include <cstdio>
 
 #define SC_INPUT_KEY_DOWN 'n'
-
 #define SC_INPUT_KEY_UP 'f'
 
 struct Vector2;
