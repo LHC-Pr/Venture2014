@@ -102,12 +102,7 @@ public:
 	// input
 	virtual void Input(char event, int key, int x, int y);
 
-	virtual bool onFacep(int borad_size, Vector3 speed, Vector3 pro);
-	
-	
-	// 2つのobjectの位置座標(Vector3)を渡すと、あたっているか判定する(球)
-	virtual bool Hitp(Vector3 first, Vector3 second);
-	
+	virtual bool onFacep(int borad_size, Vector3 speed, Vector3 pro);	
 
 	// Destructor
 	virtual ~Stage1();

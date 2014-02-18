@@ -183,4 +183,21 @@ bool getKeyState(int *KeyBuf, int key, int *Keys, int size)
 }
 
 
+bool Hitp(Vector3 first, Vector3 second){
+	Vector3 hit_pro = first - second;
+	
+	if(sqrt(hit_pro.x * hit_pro.x + hit_pro.y *
+			hit_pro.y + hit_pro.z * hit_pro.z) < 1.0){
+		return true;
+	}
+	return false;
+}
 
+bool InBoardSizep(int board_size, Vector3 pos){
+	if(pos.z < board_size >> 1 || pos.z > -board_size >> 1 ||
+	   pos.x < board_size >> 1 || pos.x > -board_size >> 1){
+		return true;		
+	}
+	
+	return false;	
+}

@@ -3,6 +3,8 @@
 #define _MY_ASSIST_H_
 
 #include <GL/freeglut.h>
+#include <GLUT/glut.h>
+
 #include <iostream>
 #include <cstring>
 #include <cmath>
@@ -147,5 +149,9 @@ bool setKeyState(int *KeyBuf, int key, bool onoff, int *Keys, int size);
 
 bool getKeyState(int *KeyBuf, int key, int *Keys, int size);
 
+// 2つのobjectの位置座標(Vector3)を渡すと、あたっているか判定する(球)
+bool Hitp(Vector3 first, Vector3 second);
+
+bool InBoardSizep(int board_size, Vector3 pos);
 
 #endif /* _MY_ASSIST_H_ */
