@@ -2,9 +2,8 @@
 #ifndef _MY_ASSIST_H_
 #define _MY_ASSIST_H_
 
-#include <GL/glut.h>
-
-// #include <GLUT/glut.h>
+#include <GL/freeglut.h>
+#include <GLUT/glut.h>
 
 #include <iostream>
 #include <cstring>
