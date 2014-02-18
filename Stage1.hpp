@@ -104,6 +104,7 @@ public:
 
 	virtual bool onFacep(int borad_size, Vector3 speed, Vector3 pro);
 	
+	
 	// 2つのobjectの位置座標(Vector3)を渡すと、あたっているか判定する(球)
 	virtual bool Hitp(Vector3 first, Vector3 second);
 	
