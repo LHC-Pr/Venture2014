@@ -11,7 +11,7 @@ ifeq ($(UNAME), Darwin)
 LDLIBS  = -g -lglut -framework GLUT -framework OpenGL
 endif
 
-OBJS    = Main.o Assist.o Stage1.o 
+OBJS    = Main.o Assist.o Stage1.o Charactors.o
 PROGRAM = game
 
 all: $(PROGRAM)

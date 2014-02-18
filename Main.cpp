@@ -122,9 +122,7 @@ void Disp()
 // Instead of drawing screen
 void Display(){
 	Disp();
-
 	glutSwapBuffers();
-
 	// if( NextStage ) 
 }
 
