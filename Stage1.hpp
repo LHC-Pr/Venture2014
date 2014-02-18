@@ -60,6 +60,7 @@ public:
 
 class Stage1 : public StageClass{
 private:
+
 	GLfloat light_0_pos[4];
 
 	// own equipment
