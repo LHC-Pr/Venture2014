@@ -3,6 +3,8 @@
 #define _MY_STAGE1_H_
 
 #include "Assist.hpp"
+#include "Charactors.hpp"
+
 
 #define BOX_MAX 4
 
@@ -10,53 +12,6 @@
 	ステージ１　クラス
 	Main.cppでインスタンスが作られ関数が呼ばれる
  ------------------------------------------------------------------*/
-
-class Charactor
-{
-public:
-	Vector3 pos;
-	Vector3 speed;
-	Vector3 force;
-
-	int onface;
-
-	Charactor();
-	virtual void Render(int) = 0;
-	virtual void PhyCal() = 0;
-};
-
-class Me : public Charactor{
-public:
-	Vector3 vec;
-	Vector3 angle;
-
-	Me();
-	virtual void Render(int);
-	virtual void PhyCal();
-	virtual void MoveCal(int);
-};
-
-class Enemy : public Charactor
-{
-public:
-	int Direction;
-	Enemy();
-	virtual void Render(int);
-	virtual void PhyCal();
-};
-
-class Progress : public Enemy
-{
-public:
-	bool render_f; 				// 存在しているか
-	
-    Progress();
-	virtual void Render(int);
-	void Reset(Vector3);
-	bool renderp();
-	void erase();
-};
-
 class Stage1 : public StageClass{
 private:
 
