@@ -194,8 +194,8 @@ bool Hitp(Vector3 first, Vector3 second){
 }
 
 bool InBoardSizep(int board_size, Vector3 pos){
-	if(pos.z < board_size >> 1 || pos.z > -board_size >> 1 ||
-	   pos.x < board_size >> 1 || pos.x > -board_size >> 1){
+	if(pos.z < (board_size >> 1) && pos.z > (-board_size >> 1) && 
+	   pos.x < (board_size >> 1) && pos.x > (-board_size >> 1)){
 		return true;		
 	}
 	
