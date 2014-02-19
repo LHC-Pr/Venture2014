@@ -1,4 +1,3 @@
-// 
 //Main.cpp
 
 #include "Assist.hpp"
@@ -51,7 +50,9 @@ int main(int argc, char *argv[])
 	
 	//initialization
 	Init();
-
+	
+	std::cout << "MainLoop" << std::endl;
+	
 	//main loop
 	glutMainLoop();        
 }
