@@ -27,8 +27,6 @@ static int keys[] = {
 	' '
 };
 
-
-
 class Charactor
 {
 public:
