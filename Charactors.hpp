@@ -69,6 +69,7 @@ public:
 	
     Progress();
 	virtual void Render(int);
+	virtual void PhyCal(int);
 	void Reset(Vector3);
 	bool renderp();
 	void erase();

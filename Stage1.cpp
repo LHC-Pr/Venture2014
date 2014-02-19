@@ -8,6 +8,7 @@ Stage1::Stage1() : board(BOARD_SIZE, BOARD_SIZE)
 	me.vec.y = 0.0;
 	me.vec.z = 1.0;
 	me.pos.y = 2.0;
+	
 	for (int i = 0; i < ENEMY_MAX; ++i){
 		enemy[i].pos.y = 10.0;
 		enemy[i].pos.x = (rand() & BOARD_SIZE) - (BOARD_SIZE >> 1);
@@ -60,12 +61,15 @@ void Stage1::Disp()
 	gluLookAt(campos.x, campos.y, campos.z,
 			  me.pos.x, me.pos.y, me.pos.z, 0.0, 1.0, 0.0);
 
+	//床表示
+	board.render();
+
 	// move
-	me.MoveCal(key_on);
+	me.MoveCal(key_on);	
 
 	// 当たり判定、物理処理
 	// 使うと入力がうまくいかない
-	// me.PhyCal();
+	// me.PhyCal(rot);
 	{
 		if(me.pos.y < -30.0){
 			me.pos = 0.0;
@@ -102,11 +106,6 @@ void Stage1::Disp()
 		me.pos += speed;
 	}
 
-	//床表示
-	board.render();
-
-	
-	
 	// 自分を表示
 	me.Render(rot);
 
@@ -155,72 +154,25 @@ void Stage1::Disp()
 	// progress
 
 	for (int i = 0; i < BOX_MAX; ++i){
-		if(pro[i].renderp()){
-
-			pro[i].speed.y -= GRAVITY;
-			Vector3 pro_speed = pro[i].speed;
-
-			if( (pro[i].force.x < 0 && pro_speed.x > pro[i].force.x) ||
-				(pro[i].force.x > 0 && pro_speed.x < pro[i].force.x) ){
-				pro_speed.x = pro[i].force.x;
+		
+		pro[i].PhyCal(rot);
+		
+		if(Hitp(pro[i].pos, me.pos)){
+			InitBox(i);
+			
+			//得点加算
+			if(timer >= 0){
+				score++;
 			}
-
-			if( (pro[i].force.y < 0 && pro_speed.y > pro[i].force.y) ||
-				(pro[i].force.y > 0 && pro_speed.y < pro[i].force.y) ){
-				pro_speed.y = pro[i].force.y;
-			}
-
-			if( (pro[i].force.z < 0 && pro_speed.z > pro[i].force.z) ||
-				(pro[i].force.z > 0 && pro_speed.z < pro[i].force.z) ){
-				pro_speed.z = pro[i].force.z;
-			}
-
-			if(onFacep(BOARD_SIZE, pro_speed, pro[i].pos)){
-				pro_speed.y = -pro[i].pos.y + 0.5;
-				pro[i].speed = 0.0;
-				pro[i].onface = 1;
-			}else{
-				pro[i].onface = 0;
-			}
-
-			pro[i].pos += pro_speed;
-
-			switch(pro[i].Direction){
-			case 0:
-				pro[i].pos.x +=  ME_MOVEMENT / 3.0;
-				break;
-			case 1:
-				pro[i].pos.z +=  ME_MOVEMENT / 3.0;
-				break;
-			case 2:
-				pro[i].pos.x -=  ME_MOVEMENT / 3.0;
-				break;
-			case 3:
-				pro[i].pos.z -=  ME_MOVEMENT / 3.0;
-				break;
-			}
-
-			// hit_pro.y += 0.5;
-
-			if(Hitp(pro[i].pos, me.pos)){
-				InitBox(i);
-
-				//得点加算
-				if(timer >= 0){
-					score++;
-				}
-
-				sprintf(str_score, "SCORE : %d", score );
-				pro[i].erase();
-				color_f[i] = 0;
-
-			}else if(pro[i].pos.y < -30.0){
-				InitBox(i);
-				color_f[i] = 0;
-				pro[i].erase();
-			}
-
-			pro[i].Render(rot);
+			
+			sprintf(str_score, "SCORE : %d", score );
+			pro[i].erase();
+			color_f[i] = 0;
+			
+		}else if(pro[i].pos.y < -30.0){
+			InitBox(i);
+			color_f[i] = 0;
+			pro[i].erase();
 		}
 	}
 

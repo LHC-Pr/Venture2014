@@ -55,7 +55,12 @@ void Me::MoveCal(int key_on)
 }
 
 void Me::PhyCal(int rot)
-{		
+{
+	if(pos.y < -30.0){
+		pos = 0.0;
+		pos.y = 10.0;
+	}
+	
 	speed.y -= GRAVITY;	// 毎フレーム毎に高さを減らす
 		
 	Vector3 calspeed;
@@ -90,6 +95,9 @@ void Me::PhyCal(int rot)
 	}
 	
 	pos += calspeed;
+	
+	// 自分を表示
+	Render(rot);
 }
 
 Progress::Progress()
@@ -112,6 +120,57 @@ void Progress::Render(int rot){
 	glRotatef(rot, 0.0, 1.0, 0.0);
 	glutSolidCube(1.0);
 	glPopMatrix();
+}
+
+void Progress::PhyCal(int rot)
+{
+	if(renderp()){
+
+		speed.y -= GRAVITY;
+		Vector3 pro_speed = speed;
+		
+		if( (force.x < 0 && pro_speed.x > force.x) ||
+			(force.x > 0 && pro_speed.x < force.x) ){
+			pro_speed.x = force.x;
+		}
+
+		if( (force.y < 0 && pro_speed.y > force.y) ||
+			(force.y > 0 && pro_speed.y < force.y) ){
+			pro_speed.y = force.y;
+		}
+
+		if( (force.z < 0 && pro_speed.z > force.z) ||
+			(force.z > 0 && pro_speed.z < force.z) ){
+			pro_speed.z = force.z;
+		}
+
+		if(onFacep(BOARD_SIZE, pro_speed, pos)){
+			pro_speed.y = -pos.y + 0.5;
+			speed = 0.0;
+			onface = 1;
+		}else{
+			onface = 0;
+		}
+
+		pos += pro_speed;
+
+		switch(Direction){
+		case 0:
+			pos.x +=  ME_MOVEMENT / 3.0;
+			break;
+		case 1:
+			pos.z +=  ME_MOVEMENT / 3.0;
+			break;
+		case 2:
+			pos.x -=  ME_MOVEMENT / 3.0;
+			break;
+		case 3:
+			pos.z -=  ME_MOVEMENT / 3.0;
+			break;
+		}
+
+		Render(rot);
+	}
 }
 
 void Progress::Reset(Vector3 box_pos)
