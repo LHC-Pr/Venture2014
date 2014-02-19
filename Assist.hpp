@@ -89,7 +89,7 @@ public:
 	// called on the screen redraw time
 	virtual void Disp() = 0;
 
-	virtual void Disp2D(int WindowWidth, int WindowHeight) = 0;
+	virtual void Disp2D(int WindowWidth, int WindowHeight){};
 
 	virtual void Input(char event, int key, int x, int y)
 	{

@@ -1,9 +1,11 @@
 // Stage1.cpp
 #include "Stage1.hpp"
 #include <time.h>
+
 Stage1::Stage1() : board(BOARD_SIZE, BOARD_SIZE)
 {
-	me.vec.x = 0.0;me.vec.y = 0.0;
+	me.vec.x = 0.0;
+	me.vec.y = 0.0;
 	me.vec.z = 1.0;
 	me.pos.y = 2.0;
 	for (int i = 0; i < ENEMY_MAX; ++i){
@@ -103,6 +105,8 @@ void Stage1::Disp()
 	//床表示
 	board.render();
 
+	
+	
 	// 自分を表示
 	me.Render(rot);
 
@@ -231,7 +235,6 @@ void Stage1::Disp()
 		}
 	}
 
-
 	rot++;						// boxの回転角度
 
 	if(timer-- < 0){
@@ -261,6 +264,7 @@ void Stage1::Input(char event, int key, int x, int y){
 		break;
 	}
 }
+
 
 Stage1::~Stage1(){
 	std::cout << "~Stage1()" << std::endl;

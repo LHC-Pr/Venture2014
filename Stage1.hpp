@@ -7,7 +7,8 @@
 
 
 #define BOX_MAX 5
-#define ENEMY_MAX 10
+#define ENEMY_MAX 100
+
 
 /*-----------------------------------------------------------------*
 	ステージ１　クラス
@@ -42,10 +43,11 @@ private:
 	Progress pro[BOX_MAX];
 
 	Enemy enemy[ENEMY_MAX];
+	
 public:
 
 	Stage1();
-
+	
 	//画面再描画時によばれる(1フレーム毎に呼ばれる)
 	virtual void Disp();
 

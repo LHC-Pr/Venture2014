@@ -60,7 +60,9 @@ void drawString(int x, int y, char *string, void *font){
 
 Board::Board(float u, float v)
 {	
-	pos = 0.0;
+	pos.x = 0.0;
+	pos.y = 0.0;
+	pos.z = 0.0;
 	size.x = 0.0;
 	size.y = 0.0;
 	
@@ -70,7 +72,7 @@ Board::Board(float u, float v)
 void Board::setRender(float u, float v)
 {
 	const static GLfloat ground[][4] = {
-		{ 0.1, 0.1, 0.1, 1.0 },
+		{ 0.6, 0.6, 0.6, 1.0 },
 		{ 1.0, 1.0, 1.0, 1.0 }
 	};
 	display_list = glGenLists(1);
@@ -97,7 +99,6 @@ void Board::setRender(float u, float v)
 		}
 	}
 	glEnd();
-
 	
 	glEndList();
 	
