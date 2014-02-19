@@ -9,7 +9,7 @@ linux:
 sudo apt-get install freeglut3 freeglut3-dev g++
 
 MacOSX:
-brew install freeglut
+brew install freeglut g++
 
 Reference URL:
 http://moto-net.github.io/programming/2012/11/12/OpenGLGame/
