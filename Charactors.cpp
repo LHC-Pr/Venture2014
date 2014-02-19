@@ -20,9 +20,9 @@ void Me::Render(int rot){
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, color);
 
 	glPushMatrix();
-	glTranslated(pos.x, pos.y, pos.z);
-	glRotatef(rot, 0.0, 1.0, 0.0);
-	glutSolidCube(1.0);
+	glTranslated(pos.x, pos.y+0.5, pos.z);
+	glRotatef(90, 1.0, 0.0, 0.0);
+	glutSolidCylinder(0.5, 1.0, 20, 20);
 	glPopMatrix();
 }
 
@@ -118,7 +118,7 @@ void Progress::Render(int rot){
 	glPushMatrix();
 	glTranslated(pos.x, pos.y, pos.z);
 	glRotatef(rot, 0.0, 1.0, 0.0);
-	glutSolidCube(1.0);
+	glutSolidTorus(0.25, 0.25, 10, 10);
 	glPopMatrix();
 }
 
@@ -214,7 +214,7 @@ void Enemy::Render(int rot)
 	glPushMatrix();
 	glTranslated(pos.x, pos.y, pos.z);
 	glRotatef(rot, 0.0, 1.0, 0.0);
-	glutSolidCube(1.0);
+	glutSolidSphere(0.5, 50, 50);
 	glPopMatrix();	
 }
 

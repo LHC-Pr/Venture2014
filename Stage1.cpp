@@ -31,7 +31,7 @@ Stage1::Stage1() : board(BOARD_SIZE, BOARD_SIZE)
 
 	key_on = 0;
 
-	score = 0;
+	score = -5;
 	str_score[0] = '\0';
 
 	timer = GAME_TIME;
