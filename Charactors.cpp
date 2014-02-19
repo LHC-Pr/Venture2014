@@ -1,3 +1,4 @@
+// Charactors.cpp
 #include "Charactors.hpp"
 
 Charactor::Charactor(){
@@ -53,7 +54,7 @@ void Me::MoveCal(int key_on)
 	}
 }
 
-void Me::PhyCal()
+void Me::PhyCal(int rot)
 {		
 	speed.y -= GRAVITY;	// 毎フレーム毎に高さを減らす
 		
@@ -158,9 +159,63 @@ void Enemy::Render(int rot)
 	glPopMatrix();	
 }
 
-void Enemy::PhyCal()
+void Enemy::PhyCal(int rot)
 {
+	speed.y -= GRAVITY;
+	Vector3 ene_speed = speed;
+	
+	if( (force.x < 0 && ene_speed.x > force.x) ||
+		(force.x > 0 && ene_speed.x < force.x) ){
+		ene_speed.x = force.x;
+	}		
+	
+	if( (force.y < 0 && ene_speed.y > force.y) ||
+		(force.y > 0 && ene_speed.y < force.y) ){
+		ene_speed.y = force.y;
+	}
+		
+	if( (force.z < 0 && ene_speed.z > force.z) ||
+		(force.z > 0 && ene_speed.z < force.z) ){
+		ene_speed.z = force.z;
+	}
+		
+	if(onFacep(BOARD_SIZE, ene_speed, pos)){			
+		ene_speed.y = -pos.y + 0.5;
+		speed = 0.0;
+		onface = 1;
+	}else{
+		onface = 0;
+	}
 
+	// pos += ene_speed;
+		
+	switch(Direction){
+	case 0:
+		pos.z += ME_MOVEMENT / 2.0;
+		break;
+	case 1:
+		pos.x += ME_MOVEMENT;
+		break;
+	case 2:
+		pos.z -= ME_MOVEMENT;
+		pos.x += ME_MOVEMENT;
+		break;
+	case 3:
+		pos.z += ME_MOVEMENT / 2.0;
+		pos.x -= ME_MOVEMENT / 2.0;
+		break;
+	}
+	
+	if(pos.y < -15){
+		pos.x = (rand() % BOARD_SIZE) - (BOARD_SIZE >> 1) ;
+		pos.z = (rand() % BOARD_SIZE) - (BOARD_SIZE >> 1);
+		pos.y = 10.0;
+		Direction = rand() % 4; // make 0~3		
+	}
+		
+	pos += ene_speed;
+		
+	Render(rot);
 }
 
 

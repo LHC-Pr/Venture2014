@@ -1,0 +1,122 @@
+
+Assist.cpp,256
+char* fps(4,37
+void setDefaultMaterial(24,367
+void drawString(50,959
+Board::Board(61,1156
+void Board::setRender(70,1255
+void Board::render(125,2337
+bool setKeyState(145,2978
+bool getKeyState(168,3316
+bool Hitp(186,3560
+bool InBoardSizep(196,3766
+
+Charactors.cpp,349
+Charactor::Charactor(3,27
+Me::Me(9,94
+void Me::Render(15,134
+void Me::MoveCal(28,411
+void Me::PhyCal(56,895
+Progress::Progress(94,1943
+void Progress::Render(102,2028
+void Progress::Reset(116,2313
+void Progress::erase(131,2712
+bool Progress::renderp(137,2772
+Enemy::Enemy(142,2820
+void Enemy::Render(147,2856
+void Enemy::PhyCal(161,3126
+
+Main.cpp,373
+#define FIRST_STAGECLASS 7,61
+#define TIMER_WAIT 8,95
+int WindowWidth 11,127
+int WindowHeight 12,150
+const char WindowTitle[WindowTitle13,174
+StageClass *Stage;Stage14,215
+int main(30,616
+void Init(60,1376
+void Disp(88,1912
+void Display(122,2531
+void Timer(128,2600
+void Reshape(136,2716
+void Keyboard(159,3324
+void KeyboardUp(172,3524
+void Close(182,3829
+
+Assist.hpp,1129
+#define _MY_ASSIST_H_3,36
+#define SC_INPUT_KEY_DOWN 13,186
+#define SC_INPUT_KEY_UP 14,216
+struct Vector219,279
+	float x,Vector2::x21,296
+	float x, y;Vector2::y21,296
+	operator float* Vector2::operator float*23,311
+	operator const Vector2::operator const26,356
+struct Vector331,422
+	float x,Vector3::x33,439
+	float x, y,Vector3::y33,439
+	float x, y, z;Vector3::z33,439
+	operator float Vector3::operator float34,455
+	operator const Vector3::operator const38,518
+	Vector3 &operator +=(Vector3::operator +=42,582
+	Vector3 &operator -=(Vector3::operator -=49,701
+	Vector3 operator + Vector3::operator +56,820
+	Vector3 operator - Vector3::operator -62,909
+	Vector3 &operator = Vector3::operator =68,998
+	Vector3 operator * Vector3::operator *75,1088
+class StageClass84,1235
+	virtual void Input(StageClass::Input94,1407
+	virtual ~StageClass(StageClass::~StageClass104,1561
+class Board{Board110,1599
+	GLuint display_list;Board::display_list112,1621
+	Vector2 size;Board::size115,1707
+	Vector3 pos;Board::pos116,1722
+	Vector3 vertex[Board::vertex117,1736
+	Vector3 tmp;Board::tmp118,1756
+
+Charactors.hpp,708
+#define _CHARACTORS_HPP_2,25
+#define BOARD_SIZE 6,74
+#define ME_MOVEMENT 8,141
+#define BOX_CAMRA 9,189
+#define GRAVITY 11,248
+#define JUMP_SPEED 12,269
+#define GAME_TIME 14,293
+#define KEY_A 16,317
+#define KEY_D 17,333
+#define KEY_W 18,349
+#define KEY_S 19,365
+#define KEY_SPACE 20,381
+static int keys[keys22,403
+class Charactor32,460
+	Vector3 pos;Charactor::pos35,486
+	Vector3 speed;Charactor::speed36,500
+	Vector3 force;Charactor::force37,516
+	int onface;Charactor::onface39,533
+class Me 46,624
+	Vector3 vec;Me::vec48,661
+	Vector3 angle;Me::angle49,675
+class Enemy 57,782
+	int Direction;Enemy::Direction60,823
+class Progress 66,904
+	bool render_f;Progress::render_f69,944
+
+Stage1.hpp,536
+#define _MY_STAGE1_H_3,36
+#define BOX_MAX 9,109
+class Stage1 15,333
+	GLfloat light_0_pos[Stage1::light_0_pos18,377
+	Me me;Stage1::me21,421
+	float rot;Stage1::rot22,429
+	Vector3 pos[Stage1::pos25,450
+	int color_f[Stage1::color_f26,473
+	Board board;Stage1::board29,507
+	int key_on;Stage1::key_on32,530
+	int score;Stage1::score34,544
+	char str_score[Stage1::str_score35,556
+	int timer;Stage1::timer38,589
+	char str_timer[Stage1::str_timer39,601
+	Progress pro[Stage1::pro41,623
+	Enemy enemy;Stage1::enemy43,648
+
+Stage1.cpp,0

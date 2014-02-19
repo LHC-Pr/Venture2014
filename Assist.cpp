@@ -193,6 +193,20 @@ bool Hitp(Vector3 first, Vector3 second){
 	return false;
 }
 
+bool onFacep(int borad_size, Vector3 speed, Vector3 pos){
+	if( -(borad_size >> 1) < pos.x + speed.x &&
+		pos.x + speed.x < borad_size >> 1 &&
+		-(borad_size >> 1) < pos.z + speed.z &&
+		pos.z + speed.z < borad_size >> 1 &&
+		// 自機が床の範囲で
+		pos.y - 0.5 >= 0.0 &&
+		pos.y + speed.y - 0.5 < 0.0){
+		// 床を貫通する早さの時
+		return true;
+	}
+	return false;
+}
+
 bool InBoardSizep(int board_size, Vector3 pos){
 	if(pos.z < (board_size >> 1) && pos.z > (-board_size >> 1) && 
 	   pos.x < (board_size >> 1) && pos.x > (-board_size >> 1)){

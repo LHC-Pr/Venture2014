@@ -1,3 +1,4 @@
+// Charactors.hpp
 #ifndef _CHARACTORS_HPP_
 #define _CHARACTORS_HPP_
 
@@ -27,8 +28,6 @@ static int keys[] = {
 	' '
 };
 
-
-
 class Charactor
 {
 public:
@@ -40,7 +39,7 @@ public:
 
 	Charactor();
 	virtual void Render(int) = 0;
-	virtual void PhyCal() = 0;
+	virtual void PhyCal(int) = 0;
 };
 
 class Me : public Charactor{
@@ -50,7 +49,7 @@ public:
 
 	Me();
 	virtual void Render(int);
-	virtual void PhyCal();
+	virtual void PhyCal(int);
 	virtual void MoveCal(int);
 };
 
@@ -60,7 +59,7 @@ public:
 	int Direction;
 	Enemy();
 	virtual void Render(int);
-	virtual void PhyCal();
+	virtual void PhyCal(int);
 };
 
 class Progress : public Enemy

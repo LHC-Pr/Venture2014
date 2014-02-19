@@ -7,6 +7,7 @@
 
 
 #define BOX_MAX 4
+#define ENEMY_MAX 5
 
 /*-----------------------------------------------------------------*
 	ステージ１　クラス
@@ -40,7 +41,7 @@ private:
 
 	Progress pro[BOX_MAX];
 
-	Enemy enemy;
+	Enemy enemy[ENEMY_MAX];
 public:
 
 	Stage1();
@@ -55,8 +56,6 @@ public:
 
 	// input
 	virtual void Input(char event, int key, int x, int y);
-
-	virtual bool onFacep(int borad_size, Vector3 speed, Vector3 pro);	
 
 	// Destructor
 	virtual ~Stage1();

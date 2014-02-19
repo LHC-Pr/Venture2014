@@ -152,6 +152,8 @@ bool getKeyState(int *KeyBuf, int key, int *Keys, int size);
 // 2つのobjectの位置座標(Vector3)を渡すと、あたっているか判定する(球)
 bool Hitp(Vector3 first, Vector3 second);
 
+bool onFacep(int borad_size, Vector3 speed, Vector3 pos);
+
 bool InBoardSizep(int board_size, Vector3 pos);
 
 #endif /* _MY_ASSIST_H_ */

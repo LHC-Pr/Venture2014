@@ -1,4 +1,3 @@
-// 
 //Main.cpp
 
 #include "Assist.hpp"
@@ -42,16 +41,18 @@ int main(int argc, char *argv[])
 	glutCreateWindow(WindowTitle);
         
 	//Registration of the callback function
-	glutDisplayFunc(Display);        //Redrawn when
-	glutCloseFunc(Close);        //When the window is closed
-	glutReshapeFunc(Reshape);        //when Window resizing
-	glutKeyboardFunc(Keyboard);        //Key input
-	glutKeyboardUpFunc(KeyboardUp);        //Key is released
-	glutTimerFunc(TIMER_WAIT, Timer, 0);
+	glutDisplayFunc(Display);					// Redrawn when
+	glutCloseFunc(Close);						// When the window is closed
+	glutReshapeFunc(Reshape);					// when Window resizing
+	glutKeyboardFunc(Keyboard);					// Key input
+	glutKeyboardUpFunc(KeyboardUp);				// Key is released
+	glutTimerFunc(TIMER_WAIT, Timer, 0);		// It is called every TIME_WAIT seconds
 	
 	//initialization
 	Init();
-
+	
+	std::cout << "MainLoop" << std::endl;
+	
 	//main loop
 	glutMainLoop();        
 }
