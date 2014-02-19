@@ -224,68 +224,7 @@ void Stage1::Disp()
 	for (int i = 0; i < ENEMY_MAX; ++i){
 		enemy[i].PhyCal(rot);
 	}
-	// {
-	// 	enemy.speed.y -= GRAVITY;
-	// 	Vector3 ene_speed = enemy.speed;
 
-	// 	if( (enemy.force.x < 0 && ene_speed.x > enemy.force.x) ||
-	// 		(enemy.force.x > 0 && ene_speed.x < enemy.force.x) ){
-	// 		ene_speed.x = enemy.force.x;
-	// 	}
-
-	// 	if( (enemy.force.y < 0 && ene_speed.y > enemy.force.y) ||
-	// 		(enemy.force.y > 0 && ene_speed.y < enemy.force.y) ){
-	// 		ene_speed.y = enemy.force.y;
-	// 	}
-
-	// 	if( (enemy.force.z < 0 && ene_speed.z > enemy.force.z) ||
-	// 		(enemy.force.z > 0 && ene_speed.z < enemy.force.z) ){
-	// 		ene_speed.z = enemy.force.z;
-	// 	}
-
-	// 	if(onFacep(BOARD_SIZE, ene_speed, enemy.pos)){
-	// 		ene_speed.y = -enemy.pos.y + 0.5;
-	// 		enemy.speed = 0.0;
-	// 		enemy.onface = 1;
-	// 	}else{
-	// 		enemy.onface = 0;
-	// 	}
-
-	// 	// enemy.pos += ene_speed;
-
-	// 	if(Hitp(me.pos, enemy.pos)){
-	// 		me.speed.y += JUMP_SPEED;
-	// 	}
-
-	// 	switch(enemy.Direction){
-	// 	case 0:
-	// 		enemy.pos.z += ME_MOVEMENT / 2.0;
-	// 		break;
-	// 	case 1:
-	// 		enemy.pos.x += ME_MOVEMENT;
-	// 		break;
-	// 	case 2:
-	// 		enemy.pos.z -= ME_MOVEMENT;
-	// 		enemy.pos.x += ME_MOVEMENT;
-	// 		break;
-	// 	case 3:
-	// 		enemy.pos.z += ME_MOVEMENT / 2.0;
-	// 		enemy.pos.x -= ME_MOVEMENT / 2.0;
-	// 		break;
-	// 	}
-
-	// 	// if(!InBoardSizep(BOARD_SIZE, enemy.pos)){
-	// 	if(enemy.pos.y < -15){
-	// 		enemy.pos = 0;
-	// 		enemy.pos.y = 2.0;
-	// 		enemy.Direction = rand() % 4; // make 0~3
-	// 	}
-
-	// 	enemy.pos += ene_speed;
-
-	// 	enemy.Render(rot);
-
-	// }
 	for (int i = 0; i < ENEMY_MAX; ++i){
 		if(Hitp(me.pos, enemy[i].pos)){
 			me.speed.y += JUMP_SPEED;

@@ -6,8 +6,8 @@
 #include "Charactors.hpp"
 
 
-#define BOX_MAX 4
-#define ENEMY_MAX 6
+#define BOX_MAX 5
+#define ENEMY_MAX 10
 
 /*-----------------------------------------------------------------*
 	ステージ１　クラス
