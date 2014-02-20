@@ -2,4 +2,5 @@
 *.o
 game
 TAGS
+test.cpp
 
