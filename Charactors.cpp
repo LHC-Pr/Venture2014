@@ -22,7 +22,7 @@ void Me::Render(int rot){
 	glPushMatrix();
 	glTranslated(pos.x, pos.y+0.5, pos.z);
 	glRotatef(90, 1.0, 0.0, 0.0);
-	glutSolidCylinder(0.5, 1.0, 20, 20);
+	glutSolidCylinder(0.5, 1.0, 10, 10);
 	glPopMatrix();
 }
 
@@ -214,7 +214,7 @@ void Enemy::Render(int rot)
 	glPushMatrix();
 	glTranslated(pos.x, pos.y, pos.z);
 	glRotatef(rot, 0.0, 1.0, 0.0);
-	glutSolidSphere(0.5, 50, 50);
+	glutSolidSphere(0.5, 10, 10);
 	glPopMatrix();	
 }
 
